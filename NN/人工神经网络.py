@@ -107,7 +107,7 @@ DL4J支持的损失函数：
 """
 """
 评估参数：
-  1. 学习速率(步幅)：函数在搜索孔建忠祎东的速率。一般范围：0.001~0.1之间。步幅越小，结果越精确
+  1. 学习速率(步幅)：函数在搜索的速率。一般范围：0.001~0.1之间。步幅越小，结果越精确
   2. 动量：是矩阵变化率的导数的因数。决定向最优值收敛的速度。一般范围：0~1之间。动量越大，定性速度越快，但模型准确率可能会降低
   3. L2正则化常数：主要针对逻辑回归的街而过的评估
 """
@@ -120,4 +120,39 @@ DL4J支持的损失函数：
   5. 所需硬件：研究所需往往是1~4个GPU系统。而企业级的计算需要使用大型CPU集群
   6. 关于特征提取：事先的特征工程能够有效的减轻计算负荷，加快定性速度，提高效率，尤其是在数据稀疏的情况下
   7. 优化的目标：误差函数、目标函数、损失函数(目的均为最小化误差)
+"""
+#python包
+"""
+keras:  https://keras.io/；http://www.360doc.com/content/17/0624/12/1489589_666148811.shtml
+模块：
+  1.optimizers
+    用途：选择优化方法
+    1.1 SGD
+    1.2 AdaGrad
+    1.3 AdaDelta
+    1.4 RMSprop
+    1.5 Adam
+  2.objectives 
+    用途：用来优化的误差项选择
+    2.1 mse：均方差(mean_squared_error)
+    2.2 mae：绝对误差(mean_absolute_error)
+    2.3 msle：对数误差(mean_absolute_percentage_error)
+    2.4 mape：评价绝对百分差(mean_squared_logarithmic_error)
+    2.5 squared_loss：平方损失
+    2.6 hinge
+    2.7 binary_crossentropy
+    2.8 categorical_crossentropy
+  3.model
+    用途：建立神经网络的一般操作
+    3.1 Sequential() 初始化一个网络
+    3.2 add 添加一层神经网络
+    3.3 compile 
+  4.layers
+    用途：给搭建的神经网络增加网络层
+    4.1 Dense
+    4.2 Dropout
+    4.3 Activation
+    4.4 Flatten
+    4.5 Convolution2D 卷积层
+    4.6 Maxpooling2D 卷积层
 """
