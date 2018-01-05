@@ -52,3 +52,10 @@ for i in range (codebook.shape[1]):
 from matplotlib import pyplot as plt
 tmp.shape
 fig = plt.imshow(tmp[:,:,0:3])
+
+
+
+
+
+
+
