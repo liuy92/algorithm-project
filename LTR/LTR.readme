@@ -1,0 +1,69 @@
+LTR Learning to Rank
+
+实质：是用有监督的机器学习的方法来解决排序问题
+核心：统计模型、分类模型、回归模型
+
+通用的分类：
+1. PointWise
+2. PairWise
+3. ListWise
+区分：训练过程中的优化目标或目标函数不同
+
+流程：
+1. 收集数据(训练数据是有标注的)
+2. 特征工程
+3. 最小化训练数据的损失函数得到排序模型
+4. 用模型适应全量数据
+
+排序的依据：
+1. 人工标注内容的好坏
+2. 点击量越高，排序越靠前(即通过点击量来反映内容好坏)
+
+前提：
+1. 点击偏见：排名靠前的点击位的点击量往往高于排名靠后的点击位
+
+数据说明：
+query —— 查询条件()
+label —— 文档级别(排序效果的好坏范围)
+
+优点：
+1. 自动学习模型的权重
+2. 对新增数据、特征易扩展，重新训练模型
+3. 相对于人工调参成本较低
+4. 易得到特征之间的关系
+
+############################################################################
+PointWise(单文档方法)：
+主要思想：将排序问题转化为多分类、回归问题
+实质：构建内容特征和相关度之间的回归模型或者分类模型
+优化目标：样本和条件的相关性(如这里的相关性定义为用户全体是否点击或点击量是多少)
+优点：模型简单、对不同的url进行相关性排序
+
+kips：按照不同的query分别构建相应的分类or回归模型，模型的因变量是每个样本的label，通过优化损失函数构建模型，并对未知数据进行排序
+
+
+
+PairWise(文档对方法)：
+主要思想：将排序问题转化为二元分类问题
+优化目标：正例、负例之间的序
+主要算法：rankSVM、GBRank
+优点：在query对应的样本候选集较少的时候，样本易扩展，便于准确的找到其排序位置
+
+kips：按照不同的query，分别抽样计算任意两个样本之间的pair，形成新的样本，即新的pair，按照相似度的正负来决定pair的取值(+-1)，特征为两样本的特征差。然后构建分类模型。将新的数据分别与原始数据+新插数据计算pair，从而确定其排序所在的位置
+
+
+ListWise(文档列表方法)：
+主要思想：优化稳当的排序结果
+优化方法：
+1. 用MAP、NDCG等排序的评价指标实现优化
+2. 优化损失函数
+主要算法：listNet、LambdaRank
+优点：将全排序问题转化为预测permutation的概率，对每个url进行打分，对打分机制进行优化
+缺点：模型超复杂、效果和pairwise相似
+
+###############################################################################
+1.Pointwise方法主要包括以下算法：Pranking (NIPS 2002), OAP-BPM (EMCL 2003), Ranking with Large Margin Principles (NIPS 2002), Constraint Ordinal Regression (ICML 2005)。
+
+2.Pairwise方法主要包括以下几种算法：Learning to Retrieve Information (SCC 1995), Learning to Order Things (NIPS 1998), Ranking SVM (ICANN 1999), RankBoost (JMLR 2003), LDM (SIGIR 2005), RankNet (ICML 2005), Frank (SIGIR 2007), MHR(SIGIR 2007), Round Robin Ranking (ECML 2003), GBRank (SIGIR 2007), QBRank (NIPS 2007), MPRank (ICML 2007), IRSVM (SIGIR 2006)  
+
+3.Listwise方法主要包括以下几种算法：LambdaRank (NIPS 2006), AdaRank (SIGIR 2007), SVM-MAP (SIGIR 2007), SoftRank (LR4IR 2007), GPRank (LR4IR 2007), CCA (SIGIR 2007), RankCosine (IP&M 2007), ListNet (ICML 2007), ListMLE (ICML 2008) 。
