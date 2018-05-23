@@ -2,7 +2,7 @@
 
 
 
-#LSA (LSI Latent Semantic Indexing) —— 潜在予以索引
+#LSA (LSI Latent Semantic Indexing) —— 潜在语义索引
 """
 实质：基于SVD的简单实用的主题模型
 原理：
