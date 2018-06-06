@@ -4,7 +4,16 @@
 """
 LSTM:
 实质：循环神经网络
-用处：识别文本市','基因市','笔记市','语音等序列数据；识别传感器市','股票等生成的数值型时间序列数据
+用处：识别文本,基因，笔记，语音等序列数据；识别传感器，股票等生成的数值型时间序列数据
+链接：https://colah.github.io/posts/2015-08-Understanding-LSTMs/【理解】
+     https://blog.csdn.net/a635661820/article/details/45390671【推导】
+     https://zhuanlan.zhihu.com/p/30465140【个人认为写的比较好的论文】
+相关论文：Long short-term memory in recurrent neural networks【基础】
+        A Critical Review of Recurrent Neural Networks for Sequence Learning【教程】
+        From Recurrent Neural Network to Long Short Term Memory Architecture Application to Handwriting Recognition Author【教程】
+        LSTM: A Search Space Odyssey【对比效果改进】
+        Empirical Evaluation of Gated Recurrent Neural Networks on Sequence Modeling【GRU】
+        
 """
 """
 循环网络与前馈网络：
@@ -37,7 +46,7 @@ LSTM:
 """
 """
 长短记忆单元(LSTM)
-优势：很好的解决了梯度消失市','长期依赖的问题
+优势：很好的解决了梯度消失，长期依赖的问题
 机制：http://www.jianshu.com/p/9dc9f41f0b29
 元素：层 -- Netual Network Layer(权重)
       神经元 -- Pointwise Operation(运算法则)
@@ -74,6 +83,6 @@ LSTM的变形：
   Depth Gated RNN
   Clockwork RNN
   
- python包：keras
+python包：keras、
 """
 #python实现
