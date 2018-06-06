@@ -73,5 +73,7 @@ LSTM的变形：
   GRU(Gated Recurrent Unit)
   Depth Gated RNN
   Clockwork RNN
+  
+ python包：keras
 """
 #python实现
