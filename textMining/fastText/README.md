@@ -1,0 +1,1 @@
+fastText实质是对Word2Vec的改良
